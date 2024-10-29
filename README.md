@@ -36,8 +36,6 @@ Rime for readline. For all programs depending on readline:
 - [sdcv](https://github.com/Dushistov/sdcv)
 - ...
 
-![screenshot](https://github.com/user-attachments/assets/88febfe0-3e32-48f6-a4c3-064759e16ca5)
-
 ## Install
 
 ### AUR
@@ -78,6 +76,10 @@ $include function rl_custom_rime /the/path/of/librl_custom_rime.so
 - Pass hotkeys to readline directly when menu is empty
 
 ## Related Projects
+
+- [Rime Frontends](https://github.com/rime/librime#frontends)
+
+### Readline Plugins
 
 - [rl_custom_isearch](https://github.com/lincheney/rl_custom_isearch)
 - [fzf-tab-completion](https://github.com/lincheney/fzf-tab-completion)
