@@ -20,7 +20,7 @@ do
             -- luacheck: ignore 143
             if not os.isdir("tmux-rime") then
                 import("devel.git")
-                git.clone("git@github.com:Freed-Wu/tmux-rime.git", { depth = 1 })
+                git.clone("https://github.com/Freed-Wu/tmux-rime", { depth = 1 })
             end
         end
     )
