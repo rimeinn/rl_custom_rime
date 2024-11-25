@@ -5,14 +5,9 @@ add_requires("rime")
 add_requires("readline")
 add_requires("glib")
 
-includes("@builtin/check")
-add_configfiles("tmux-rime/config.h.in")
-configvar_check_cincludes("RIME_API_DEPRECATED", "rime_api_deprecated.h")
-
 target("rl_custom_rime")
 do
     set_kind("shared")
-    add_includedirs("$(buildir)")
     add_files("tmux-rime/tmux-rime.c", "*.c")
     add_includedirs("tmux-rime")
     add_undefines("_XOPEN_SOURCE")
