@@ -1,6 +1,7 @@
 # rl_custom_rime
 
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/Freed-Wu/rl_custom_rime/main.svg)](https://results.pre-commit.ci/latest/github/Freed-Wu/rl_custom_rime/main)
+[![github/workflow](https://github.com/Freed-Wu/rl_custom_rime/actions/workflows/main.yml/badge.svg)](https://github.com/Freed-Wu/rl_custom_rime/actions)
 
 [![github/downloads](https://shields.io/github/downloads/Freed-Wu/rl_custom_rime/total)](https://github.com/Freed-Wu/rl_custom_rime/releases)
 [![github/downloads/latest](https://shields.io/github/downloads/Freed-Wu/rl_custom_rime/latest/total)](https://github.com/Freed-Wu/rl_custom_rime/releases/latest)
