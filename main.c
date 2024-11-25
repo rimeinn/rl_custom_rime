@@ -16,6 +16,8 @@
 
 #define DEFAULT_BUFFER_SIZE 1024
 
+extern RimeApi *rime;
+
 static void clear(FILE *fp) {
   char str[DEFAULT_BUFFER_SIZE] = "";
   struct winsize w;
@@ -55,6 +57,7 @@ static int feed_keys(const char *keys) {
 
 int rl_custom_function(int count, int key) {
   static RimeSessionId session_id;
+  rime = rime_get_api();
   if (session_id == 0) {
     RimeTraits traits = RimeGetTraits();
     traits.distribution_code_name = "rl_custom_rime";
@@ -62,9 +65,9 @@ int rl_custom_function(int count, int key) {
     traits.app_name = "rime.rl_custom_rime";
     // don't let error message disturb input
     fprintf(stderr, "\e[s\n");
-    RimeSetup(&traits);
-    RimeInitialize(&traits);
-    session_id = RimeCreateSession();
+    rime->setup(&traits);
+    rime->initialize(&traits);
+    session_id = rime->create_session();
     fprintf(stderr, "\e[u");
     /*clear(stderr);*/
     if (session_id == 0)
@@ -73,7 +76,7 @@ int rl_custom_function(int count, int key) {
   RimeUI ui = {"<|", ">|", "[",
                "]",  "|",  {"①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⓪"}};
   RimeLoop(session_id, ui, key, feed_keys, callback);
-  RimeClearComposition(session_id);
+  rime->clear_composition(session_id);
   clear(stdout);
   return EXIT_SUCCESS;
 }
