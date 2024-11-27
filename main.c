@@ -16,8 +16,6 @@
 
 #define DEFAULT_BUFFER_SIZE 1024
 
-extern RimeApi *rime;
-
 static void clear(FILE *fp) {
   char str[DEFAULT_BUFFER_SIZE] = "";
   struct winsize w;
@@ -57,7 +55,9 @@ static int feed_keys(const char *keys) {
 
 int rl_custom_function(int count, int key) {
   static RimeSessionId session_id;
-  rime = rime_get_api();
+  static RimeApi *rime;
+  if (rime == NULL)
+    rime = rime_get_api();
   if (session_id == 0) {
     RimeTraits traits = RimeGetTraits();
     traits.distribution_code_name = "rl_custom_rime";
