@@ -8,13 +8,13 @@ add_requires("glib")
 target("rl_custom_rime")
 do
     set_kind("shared")
-    add_files("tmux-rime/tmux-rime.c", "*.c")
+    add_files("*.c")
     add_includedirs("tmux-rime")
     add_undefines("_XOPEN_SOURCE")
     add_packages("rime")
     add_packages("readline")
     add_packages("glib")
-    before_build(
+    on_load(
         function(target)
             ---@diagnostic disable: undefined-field
             -- luacheck: ignore 143
@@ -22,6 +22,7 @@ do
                 import("devel.git")
                 git.clone("https://github.com/Freed-Wu/tmux-rime", { depth = 1 })
             end
+            target:add("files", "tmux-rime/tmux-rime.c")
         end
     )
 end
