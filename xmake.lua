@@ -1,9 +1,7 @@
 -- luacheck: ignore 111 113
 ---@diagnostic disable: undefined-global
 add_rules("mode.debug", "mode.release")
-add_requires("rime")
-add_requires("readline")
-add_requires("glib")
+add_requires("rime", "readline", "glib")
 
 target("rl_custom_rime")
 do
@@ -11,9 +9,7 @@ do
     add_files("*.c")
     add_includedirs("tmux-rime")
     add_undefines("_XOPEN_SOURCE")
-    add_packages("rime")
-    add_packages("readline")
-    add_packages("glib")
+    add_packages("rime", "readline", "glib")
     on_load(
         function(target)
             ---@diagnostic disable: undefined-field
