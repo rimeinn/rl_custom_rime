@@ -2,17 +2,15 @@
 #include <stdio.h>
 
 #include <dirent.h>
-#include <glib.h>
 #include <readline/readline.h>
 #include <rime_api.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/ioctl.h>
 #include <sys/stat.h>
+#include <tmux-rime.h>
 #include <unistd.h>
 #include <wordexp.h>
-
-#include "tmux-rime/tmux-rime.h"
 
 #define DEFAULT_BUFFER_SIZE 1024
 
