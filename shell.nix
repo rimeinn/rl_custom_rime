@@ -9,7 +9,7 @@ mkShell {
     readline
 
     curl
-    tar
+    gnutar
     gzip
     librime
     glib
